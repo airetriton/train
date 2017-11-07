@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Train Time</title>
+
+	<!--reset stylesheet-->
+  	<link rel="stylesheet" type="text/css" href="css/reset.css">
+
+  	<!--stylesheet-->
+  	<link rel="stylesheet" type="text/css" href="css/style.css">
+  	<link rel="stylesheet" type="text/javascript" href="assets/javascript/jsstyle.js">
+
+  
+ 	<!--meta info for responsiveness-->
+ 	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+ 	 <!--bootstrap-->
+
+ 	 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+</head>
+<body>
+	<div class="container">
+		<div class="conteiner-fluid">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
+                <div class="page-header">
+                    <h1 class="text-center"><span class="glyphicon glyphicon-globe glyphicon-align-left"></span> Employee Data Management</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><span class="glyphicon glyphicon-list-alt"></span> Current Employees</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="panel-heading" style="border-bottom: 1px solid gray;">
+                            <table id="myTable" style="width:100%">
+                                <tr>
+                                    <th>Employee Name</th>
+                                    <th>Role</th> 
+                                    <th>Start Date</th>
+                                    <th>Months Worked</th>
+                                    <th>Monthly Rate ($)</th>
+                                    <th>Total Billed ($)</th>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="panel-body"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><span class="glyphicon glyphicon-info-sign glyphicon-align-left"></span> Add Employee</h4>
+                    </div>
+                    <div class="panel-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="term">Employee Name:</label>
+                                <input type="term" class="form-control" id="name-input">
+                            </div>
+                            <div class="form-group">
+                                <label for="term">Role:</label>
+                                <input type="term" class="form-control" id="role-input">
+                            </div>
+                            <div class="form-group">
+                                <label for="term">Start Date (DD/MM/YY - ex: 01/18/65):</label>
+                                <input type="term" class="form-control" id="startDate-input">
+                            </div>
+                            <div class="form-group">
+                                <label for="year-start">Monthly Rate:</label>
+                                <input type="year-start" class="form-control" id="monthlyRate-input">
+                            </div>
+                            <button id="add-user" class="btn btn-primary btn-md"><span class="glyphicon glyphicon-info-sign"></span> Search</button>
+                            <button class="btn btn-primary btn-md"><span class="glyphicon glyphicon-trash"></span> Clear Results</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery.js"></script>
+
+	<!-- FIREBASE -->
+	<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+
+	<!--moment-->
+	<script type="text/javascript" src="js/vendor/moment-with-locales.js"></script>
+	<!--js-->
+	<script src="js/train.js" type="text/javascript"></script>
+</html>

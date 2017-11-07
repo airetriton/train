@@ -1,0 +1,99 @@
+body {
+	background-image: url(../images/festive-background.jpg);
+	font-variant: small-caps; 
+	margin: 0px;
+}
+
+.container {
+	width: 100%;
+
+}
+
+#heading {
+	background-image: url(../images/celebration1.jpg);
+	opacity: .8;
+	font-family: Arial Black, Charcoal, sans-serif;
+	width: auto;
+	text-align: center;
+	letter-spacing: 2px;
+	padding: 35px;
+	color: #473c8b;
+	
+}
+
+h1{
+	font-size: 48px;	
+	font-weight: 900;
+	letter-spacing: 2px;
+}
+
+#holiday-view {
+
+}
+
+.holiday {
+	background-image: url(../images/goldbkg.jpg);
+	text-align: center;
+	color: white;
+	font-weight: 700;
+	font-size: 20px;
+	text-decoration: bold;
+	width: 220px;
+	margin: 3px;
+	padding: 10px 0px 10px 0px;
+	opacity: 1.0;
+}
+
+#add-holiday {
+	background-image: url(../images/celebration1.jpg);
+	opacity: .8;
+	color: #473c8b;
+	font-weight: 700;
+	font-size: 16px;
+	float: right;
+	padding: 10px;
+}
+
+#holiday-input {
+	width: 100%;
+	height: 50px;
+
+}
+
+.holidayDiv {
+	border: solid 2px #473c8b;
+	display: inline-block;
+	margin: 10px;
+	text-align: center;
+}
+
+p {
+	color: purple;
+	font-size: 14px;
+	
+}
+
+form {
+
+}
+
+input {
+	padding: 5px;
+
+}
+
+@media screen 
+	and (max-width: 360px) {
+
+	.holidayDiv{
+		display: inline;		
+	}
+
+	#holiday-input {
+	width: 100%;
+	height: 75px;
+	font-size: 11px;
+	overflow: auto;
+
+}
+}
