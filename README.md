@@ -1,2 +1,2 @@
 # train
-(../train.png)  
+(train.png)  
