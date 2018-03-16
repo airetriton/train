@@ -1,103 +1,114 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Train Time</title>
+  <meta charset="UTF-8">
+  <title>Train Scheduler</title>
 
-	<!--reset stylesheet-->
-  	<link rel="stylesheet" type="text/css" href="css/reset.css">
-
-  	<!--stylesheet-->
-  	<link rel="stylesheet" type="text/css" href="css/style.css">
-  	<link rel="stylesheet" type="text/javascript" href="assets/javascript/jsstyle.js">
-
+ <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   
- 	<!--meta info for responsiveness-->
- 	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
- 	 <!--bootstrap-->
-
- 	 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-
+  <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+  
+  <!-- Firebase Reference -->
+  <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase-database.js"></script>
+  
+  <!-- Moment.js Reference -->
+  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- <script src="assets/js/train.js"></script> -->
 </head>
-<body>
-	<div class="container">
-		<div class="conteiner-fluid">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
-                <div class="page-header">
-                    <h1 class="text-center"><span class="glyphicon glyphicon-globe glyphicon-align-left"></span> Employee Data Management</h1>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><span class="glyphicon glyphicon-list-alt"></span> Current Employees</h4>
-                    </div>
-                    <div class="panel-body">
-                        <div class="panel-heading" style="border-bottom: 1px solid gray;">
-                            <table id="myTable" style="width:100%">
-                                <tr>
-                                    <th>Employee Name</th>
-                                    <th>Role</th> 
-                                    <th>Start Date</th>
-                                    <th>Months Worked</th>
-                                    <th>Monthly Rate ($)</th>
-                                    <th>Total Billed ($)</th>
-                                </tr>
-                            </table>
-                        </div>
-                        <div class="panel-body"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><span class="glyphicon glyphicon-info-sign glyphicon-align-left"></span> Add Employee</h4>
-                    </div>
-                    <div class="panel-body">
-                        <form>
-                            <div class="form-group">
-                                <label for="term">Employee Name:</label>
-                                <input type="term" class="form-control" id="name-input">
-                            </div>
-                            <div class="form-group">
-                                <label for="term">Role:</label>
-                                <input type="term" class="form-control" id="role-input">
-                            </div>
-                            <div class="form-group">
-                                <label for="term">Start Date (DD/MM/YY - ex: 01/18/65):</label>
-                                <input type="term" class="form-control" id="startDate-input">
-                            </div>
-                            <div class="form-group">
-                                <label for="year-start">Monthly Rate:</label>
-                                <input type="year-start" class="form-control" id="monthlyRate-input">
-                            </div>
-                            <button id="add-user" class="btn btn-primary btn-md"><span class="glyphicon glyphicon-info-sign"></span> Search</button>
-                            <button class="btn btn-primary btn-md"><span class="glyphicon glyphicon-trash"></span> Clear Results</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
+<body> 
+  <!-- Top Nav -->
+  <nav class="navbar navbar-default" id="navbar">
+    <div class="container-fluid wrap">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="index.html">
+         
+       </div>
+      <!-- login -->
+      <div class="nav navbar-nav navbar-right">
+        <text id="text">Login:</text>
+            <!--Adds custom LOGIN button-->
+        <a href="#" onclick="fb_login();"><img class="fb" src="assets/images/fbround.png" height="50px" width="50px" border="0"></a>
+        <a href="#"><img id="github" src="assets/images/github.png" height="50px" width="50px" border="0"></a>
+      </div>
+    </div>
+  </nav>
+<div class="container">
+  <div class="jumbotron text-center">
+    <h1>Choo, Choo, Choo...</h1>
+    <h1>Where Would You Like To Go?</h1>
+    <hr>
+    <h2>Current Time: <span id="currentTime">Mon Feb 13 2018 16:26:01 GMT-0700</span></h2>
+  </div> <!-- Jumbotron End -->
+  <!-- main body container -->
+  <div class="row">
+    <div class="col-md-9">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Current Train Schedule</h3>
+        </div>
+        <div class="panel-body">
+          <table class="table table-hover table-responsive" id="trainTable" style="background-color: none !important; color: none">
+          <thead>
+            <tr>
+              <th>Train Name</th>
+              <th>Destination</th>
+              <th>Frequency (min)</th>
+              <th>Next Arrival</th>
+              <th>Minutes Away</th>
+            </tr>
+          </thead>
+          <tbody id="trainTable">
+            <tr></tr>
+          <tr><td id="nameDisplay">undefined</td><td id="destDisplay">undefined</td><td id="freqDisplay">undefined</td><td id="nextDisplay">16:26</td><td id="awayDisplay">NaN minutes until arrival</td></tr></tbody>
+          </table>
+        </div> <!-- Panel Body End -->
+      </div> <!-- Panel Default End -->
+    </div> <!-- Col End -->
+    <div class="col-md-3">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Add Train</h3>
+        </div>
+        <div class="panel-body">
+          <form>
+            <div class="form-group">
+                <label for="name">Train Name </label>
+                <input type="text" class="form-control" id="nameInput" placeholder="Runaway Train">
+            </div>
+            <div class="form-group">
+                <label for="dest">Destination </label>
+                <input type="text" class="form-control" id="destInput" placeholder="Alaska">
+            </div>
+            <div class="form-group">
+                <label class="nextTrain" for="nextTrain">First Train Time</label><label class="milTime">&nbsp;(HH:mm - Military)</label>
+                <input type="" class="form-control" id="timeInput" placeholder="00:00">
+            </div>
+            <div class="form-group">
+                <label for="minsAway">Frequency - (mins) </label>
+                <input type="text" class="form-control" id="freqInput" placeholder="15">
+            </div>
+            <button type="submit" class="btn btn-default" id="submit">Add Train</button>
+            <button type="submit" class="btn btn-default" id="removeTain">Remove</button>
+          </form>
+        </div> <!-- Panel Body End -->
+      </div> <!-- Panel Default End -->
+    </div> <!-- Col End -->
+  </div> <!-- Row End -->
+</div>  <!-- Container End -->
+    <script src="assets/js/train.js"></script>
 
 </body>
 
-	<!-- jQuery -->
-	<script src="https://code.jquery.com/jquery.js"></script>
-
-	<!-- FIREBASE -->
-	<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
-
-	<!--moment-->
-	<script type="text/javascript" src="js/vendor/moment-with-locales.js"></script>
-	<!--js-->
-	<script src="js/train.js" type="text/javascript"></script>
 </html>
