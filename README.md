@@ -1,2 +1,2 @@
 # train
-(train.png)  
+[image] (https://github.com/airetriton/train/blob/master/train.png)
